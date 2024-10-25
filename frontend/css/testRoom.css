@@ -1,0 +1,170 @@
+/* Body with Scroll */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #f4f4f9;
+    background-image: url('happy.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-y: auto; /* Enable vertical scroll */
+}
+
+
+
+/* Quiz Container with Scroll */
+#quiz-container {
+    width: 100%;
+    max-width: 600px;
+    max-height: 80vh; /* Limit the height to allow scrolling */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    background-image: url('back_paper.jpg');
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    overflow-y: auto; /* Enable vertical scroll */
+}
+
+/* Heading Styling */
+h4 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Option Container Styling */
+#options-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.option {
+    width: 48%;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* Radio Button Styling */
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Button Styling */
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+/* Enter Room Section Styling */
+.enter-room {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 80%;
+    max-width: 400px;
+    margin: 100px auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.enter-room h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.enter-room input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Enter Button Styling */
+#enter {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#enter:hover {
+    background-color: #218838;
+}
+
+/* Leaderboard Link Styling */
+#leaderboard {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    background-color: white;
+    z-index: 1000;
+}
+
+#leaderboard a {
+    color: green;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#leaderboard a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for Next and Submit Buttons */
+#next-btn, #submit-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px 0;
+}
+
+#next-btn:hover, #submit-btn:hover {
+    background-color: #0056b3;
+}

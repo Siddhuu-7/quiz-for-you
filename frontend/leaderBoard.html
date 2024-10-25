@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="css/quizfav.ico" type="image/x-icon">
+    <title>Quiz|Scoreboard</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af); /* Dark gradient background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #scoreboard {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #1c2833; /* Dark background */
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7); /* Stronger shadow for depth */
+            box-sizing: border-box;
+            border: 2px solid #2980b9; /* Blue border */
+        }
+
+        #scoreboard h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #f1c40f; /* Bright yellow for title */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Shadow for title */
+        }
+
+        .participant {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            margin-bottom: 10px;
+            background-color: #34495e; /* Dark gray background for participants */
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+        }
+
+        .participant:hover {
+            background-color: #f39c12; /* Vibrant orange on hover */
+            transform: scale(1.02); /* Slight zoom effect */
+        }
+
+        .score {
+            font-weight: bold;
+            color: #ecf0f1; /* Light text for contrast */
+        }
+
+        /* Styles for top 3 places */
+        .participant.gold {
+            background-color: #f1c40f; /* Gold for first place */
+            color: #fff;
+        }
+
+        .participant.silver {
+            background-color: #bdc3c7; /* Silver for second place */
+            color: #2c3e50;
+        }
+
+        .participant.bronze {
+            background-color: #cd7f32; /* Bronze for third place */
+            color: #fff;
+        }
+
+        /* Animation for new scores */
+        .participant.new {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            #scoreboard {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .participant {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            #scoreboard h2 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .participant {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .score {
+                margin-top: 5px;
+            }
+
+            #scoreboard h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+            
+</head>
+<body>
+    <div id="scoreboard">
+        <h2>Scoreboard</h2>
+        <div id="participants"></div>
+    </div>
+
+    <script>
+        const roomId = localStorage.getItem("roomId"); 
+        // Fetch data from the server
+        fetch(`https://backend-d485.onrender.com/api/participants/${roomId}`)
+            .then(res => res.json())
+            .then(data => {
+                participants = data; // Store the fetched data in participants array
+                updateScoreboard(participants); // Initial render
+            })
+            .catch(err => console.error('Error fetching participants:', err));
+    
+        const divId = document.getElementById("participants");
+    
+        // Function to update the scoreboard
+        function updateScoreboard(data) {
+            divId.innerHTML = ''; // Clear existing participants
+             localStorage.clear();
+            // Sort participants by score in descending order
+            const sortedParticipants = data.sort((a, b) => b.score - a.score);
+    
+            // Apply classes for top 3 participants
+            sortedParticipants.forEach((element, index) => {
+                const child = document.createElement("div");
+                child.classList.add('participant', 'new'); // Add animation class
+    
+                // Apply specific classes for 1st, 2nd, and 3rd places
+                if (index === 0) {
+                    child.classList.add('gold');
+                } else if (index === 1) {
+                    child.classList.add('silver');
+                } else if (index === 2) {
+                    child.classList.add('bronze');
+                }
+    
+                child.innerHTML = `<span>${letters(element.userName)}</span><span class="score">${element.score}</span>`;
+                divId.appendChild(child); // Append each participant to the div
+            });
+
+        }
+
+function letters(name){
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+}
+
+        
+    </script>
+    
+</body>
+</html>
