@@ -7,8 +7,20 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="css/quizfav.ico" type="image/x-icon">
     <style>
-        /* Styling for the Enter Room Section */
-      
+       #countdown {
+            position: absolute;
+            top: 2%; 
+            right: 2%; 
+            padding: 10px 20px; 
+            border: 2px solid #61dafb;
+            border-radius: 10px;
+            background-color: rgba(97, 218, 251, 0.2);
+            color: white; 
+            font-family: Arial, sans-serif;
+            font-size: 2vw; 
+            min-width: 150px; 
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -16,7 +28,7 @@
 <body>
     <div>
         <!-- Enter Room Form -->
-        <div id="enter-room" class="enter-room">
+        <div id="enter-room" class="enter-room" >
             <h2>Enter Room</h2>
             <input type="text" id="userName" placeholder="Enter Your Name">
             <input id="roomId" type="text" placeholder="Enter Room ID">
@@ -24,7 +36,8 @@
             <button type="submit" id="enter" onclick="submit()">Enter</button>
         </div>
         <!-- Hidden content that becomes visible after entering the room -->
-        <div style="display: none;" id="T">  
+        <div id="T" style="display: none;">
+            <div id="countdown">Loading...</div>  
             <div id="leaderboard" style="display: none;">
                 <a href="leaderBoard.html">📊 LeaderBoard</a>
             </div>

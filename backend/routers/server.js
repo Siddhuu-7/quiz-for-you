@@ -154,7 +154,7 @@ app.post('/api/rooms', async (req, res) => {
 
 app.get('/api/roomsDetails/:roomId', async (req, res) => {
     try {
-        const data = await rooms.find();
+        const data = await rooms.find({roomId:req.params.roomId});
         res.json(data);
     } catch (err) {
         console.log(err);

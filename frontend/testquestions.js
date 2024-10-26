@@ -258,18 +258,18 @@ async function submit() {
         const response = await fetch(`https://quiz-for-you.onrender.com/api/roomsDetails/${roomId}`);
         const roomDetailsArray = await response.json();
         console.log("Room details received:", roomDetailsArray);
-         
+        // 
         if (!Array.isArray(roomDetailsArray) || roomDetailsArray.length === 0) {
             alert("No room details found.");
             return;
         }
-
         const roomDetails = roomDetailsArray.find(room => room.roomId === roomId);
         // console.log(`Searched for Room ID: ${roomId}, Found Room Details:`, roomDetails);
-
+        console.log(roomDetails.startTime,roomDetails.endingTime);
+        startCountdown(roomDetails.endingTime);
         if (roomDetails) {
             const currentTime = getFormattedDateTime();
-
+            
             if (roomDetails.roomPassword !== password) {
                 alert("Incorrect password!");
                 return;
@@ -288,12 +288,11 @@ async function submit() {
                     },
                     body: JSON.stringify(postData),
                 });
-
                 document.getElementById('enter-room').style.display = 'none';  
                 document.getElementById("T").style.display = 'block';  
                 
                 document.body.style.backgroundImage = "url('css/oldpaper.jpg')";
-                fetchQuestions(roomId); // Fetch questions here
+                fetchQuestions(roomId); 
                 
             } else {
                 alert(`You cannot enter Room ${roomId} before the start time.`);
@@ -345,4 +344,27 @@ async function Users(userName, roomId) {
         console.error("Error fetching participants:", error);
         return false;
     }
+}
+
+
+function startCountdown(endingTime) {
+    const endDate = new Date(endingTime);
+    const totalDuration = endDate - new Date(); 
+    let remainingTime = totalDuration;
+
+    const countdownInterval = setInterval(() => {
+        const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = 
+            `Remaining Time: ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+
+        if (remainingTime <= 0) {
+            clearInterval(countdownInterval);
+            document.getElementById("countdown").innerHTML = "Countdown finished!";
+        }
+
+        remainingTime -= 1000;
+    }, 1000); 
 }
