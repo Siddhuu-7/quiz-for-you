@@ -46,7 +46,7 @@ console.log(roomId);
 async function fetchQuestions(roomId) {
     try {
 
-        const res = await fetch(`https://backend-d485.onrender.com/api/get/${roomId}`);
+        const res = await fetch(`https://quiz-for-you.onrender.com/api/get/${roomId}`);
         data = await res.json();
         // console.log("Fetched questions:", data); // Check if questions are fetched
         displayQuestion(); // Call displayQuestion after fetching data
@@ -186,7 +186,7 @@ function handleSubmitButton() {
         roomId: Number(document.getElementById("roomId").value)
     };
     post=postData;
-    fetch("https://backend-d485.onrender.com/api/score", {
+    fetch("https://quiz-for-you.onrender.com/api/score", {
         method: "POST", 
         headers: {
             "Content-Type": "application/json", 
@@ -255,7 +255,7 @@ async function submit() {
     }
 
     try {
-        const response = await fetch(`https://backend-d485.onrender.com/api/roomsDetails/${roomId}`);
+        const response = await fetch(`https://quiz-for-you.onrender.com/api/roomsDetails/${roomId}`);
         const roomDetailsArray = await response.json();
         console.log("Room details received:", roomDetailsArray);
          
@@ -281,7 +281,7 @@ async function submit() {
                     roomId: localStorage.getItem('roomId')
                 };
                 
-                await fetch("https://backend-d485.onrender.com/api/users", {
+                await fetch("https://quiz-for-you.onrender.com/api/users", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
