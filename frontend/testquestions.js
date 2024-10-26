@@ -331,7 +331,7 @@ function getFormattedDateTime() {
 
 async function Users(userName, roomId) {
     try {
-        const response = await fetch(`https://backend-d485.onrender.com/api/participants/${roomId}`);
+        const response = await fetch(`https://quiz-for-you.onrender.com/api/participants/${roomId}`);
         const data = await response.json();  // await response.json()
 
         // console.log("Participants data:", data);  // Log the data to check its structure
