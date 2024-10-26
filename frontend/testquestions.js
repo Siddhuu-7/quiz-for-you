@@ -160,7 +160,7 @@ function displayScore() {
 
     document.getElementById("leaderboard").style.display = "block";
     document.body.style.backgroundImage = "url('css/score.jpg')";
-
+    document.getElementById("countdown").style.display='none';
     if (divId) {
         divId.innerHTML = `<h3>Your final score is: ${score}/${data.length}</h3>`;
         document.getElementById("confetti-container").style.display = "block";
