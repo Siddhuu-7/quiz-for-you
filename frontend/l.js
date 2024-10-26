@@ -45,9 +45,10 @@ function updateScoreboard(data) {
         } else if (index === 2) {
             child.classList.add('bronze');
         }
-
+        if(element.score){
         child.innerHTML = `<span>${letters(element.userName)}</span><span class="score">${element.score}</span>`;
         divId.appendChild(child); // Append each participant to the div
+        }
     });
 }
 
