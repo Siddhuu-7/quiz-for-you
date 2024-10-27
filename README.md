@@ -11,10 +11,10 @@ This appendix provides additional information about the features, tools, and res
 
 ### 1.Technology Stack
 
-Frontend: HTML, CSS, JavaScript, ensuring a responsive and interactive user interface.
-Backend: Node.js and Express, managing server-side logic and API integrations.
-Database: MongoDB, used to store quiz data and manage user interactions.
-Hosting: Render.com, enabling a stable and accessible platform for users.
+###### Frontend: HTML, CSS, JavaScript, ensuring a responsive and interactive user interface.
+###### Backend: Node.js and Express, managing server-side logic and API integrations.
+###### Database: MongoDB, used to store quiz data and manage user interactions.
+###### Hosting: Render.com, enabling a stable and accessible platform for users.
 
 ### 2.Data Structure
 
