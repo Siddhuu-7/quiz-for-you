@@ -20,9 +20,9 @@ This appendix provides additional information about the features, tools, and res
 
 Each quiz question is stored with fields like roomName, question, options, correctAnswer, and timestamps, allowing smooth data flow and real-time updates.
 ### 3.Development Tools
-Visual Studio Code: Used for coding and debugging.
-GitHub: For version control and collaborative development.
-Postman: For testing API routes.
+###### Visual Studio Code: Used for coding and debugging.
+###### GitHub: For version control and collaborative development.
+###### Postman: For testing API routes.
 ### 4.User Flow
 
 Users can choose to create a new room or enter an existing one, enabling versatile use for individual or group quizzes.
