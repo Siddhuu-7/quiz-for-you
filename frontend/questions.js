@@ -129,7 +129,7 @@ function questionsAdd() {
             Answer: correctText
         };
 
-        fetch("https://quiz-for-you.onrender.com/api/post", {
+        fetch("https://quiz-for-you-8759.onrender.com/api/post", {
             method: "POST", 
             headers: {
                 "Content-Type": "application/json", 
@@ -176,7 +176,7 @@ function save_time() {
             userEmail: localStorage.getItem('email')
         };
 
-        fetch('https://quiz-for-you.onrender.com/api/saveTime', {
+        fetch('https://quiz-for-you-8759.onrender.com/api/saveTime', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -194,7 +194,7 @@ function save_time() {
             alert('There was an error saving the time.');
         });
 
-        fetch('https://quiz-for-you.onrender.com/api/rooms', {
+        fetch('https://quiz-for-you-8759.onrender.com/api/rooms', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

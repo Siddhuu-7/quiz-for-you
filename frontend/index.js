@@ -27,7 +27,7 @@ function toggleRoomDetails() {
 
 async function roomCheck(roomId) {
     try {
-        const response = await fetch(`https://quiz-for-you.onrender.com/api/roomsDetails/${roomId}`);
+        const response = await fetch(`https://quiz-for-you-8759.onrender.com//api/roomsDetails/${roomId}`);
         if (!response.ok) {
             console.error("Error with response:", response.status);
             return false;

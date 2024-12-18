@@ -131,7 +131,7 @@
     <script>
         const roomId = localStorage.getItem("roomId"); 
         // Fetch data from the server
-        fetch(`https://quiz-for-you.onrender.com/api/participants/${roomId}`)
+        fetch(`https://quiz-for-you-8759.onrender.com/api/participants/${roomId}`)
             .then(res => res.json())
             .then(data => {
                 participants = data; // Store the fetched data in participants array

@@ -7,7 +7,7 @@ async function fetchRooms() {
         liveRoomsButton.textContent = "Hide Rooms"; 
 
         try {
-            const response = await fetch('https://quiz-for-you.onrender.com/api/roomsDetails'); 
+            const response = await fetch('https://quiz-for-you-8759.onrender.com/api/roomsDetails'); 
             const data = await response.json(); 
             
             rooms.innerHTML = "";

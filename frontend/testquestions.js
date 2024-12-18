@@ -46,7 +46,7 @@ console.log(roomId);
 async function fetchQuestions(roomId) {
     try {
 
-        const res = await fetch(`https://quiz-for-you.onrender.com/api/get/${roomId}`);
+        const res = await fetch(`https://quiz-for-you-8759.onrender.com/api/get/${roomId}`);
         data = await res.json();
         // console.log("Fetched questions:", data); // Check if questions are fetched
         displayQuestion(); // Call displayQuestion after fetching data
@@ -187,7 +187,7 @@ function handleSubmitButton() {
         roomId: Number(document.getElementById("roomId").value)
     };
     post=postData;
-    fetch("https://quiz-for-you.onrender.com/api/score", {
+    fetch("https://quiz-for-you-8759.onrender.com/api/score", {
         method: "POST", 
         headers: {
             "Content-Type": "application/json", 
@@ -256,7 +256,7 @@ async function submit() {
     }
 
     try {
-        const response = await fetch(`https://quiz-for-you.onrender.com/api/roomsDetails/${roomId}`);
+        const response = await fetch(`https://quiz-for-you-8759.onrender.com/api/roomsDetails/${roomId}`);
         const roomDetailsArray = await response.json();
         console.log("Room details received:", roomDetailsArray);
         // 
@@ -282,7 +282,7 @@ async function submit() {
                     roomId: localStorage.getItem('roomId')
                 };
                 
-                await fetch("https://quiz-for-you.onrender.com/api/users", {
+                await fetch("https://quiz-for-you-8759.onrender.com/api/users", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -331,7 +331,7 @@ function getFormattedDateTime() {
 
 async function Users(userName, roomId) {
     try {
-        const response = await fetch(`https://quiz-for-you.onrender.com/api/participants/${roomId}`);
+        const response = await fetch(`https://quiz-for-you-8759.onrender.com/api/participants/${roomId}`);
         const data = await response.json();  // await response.json()
 
         // console.log("Participants data:", data);  // Log the data to check its structure

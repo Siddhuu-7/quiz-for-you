@@ -6,7 +6,7 @@ function fetchData() {
     const messageDiv = document.getElementById("message");
 
     if (roomId) {
-        fetch(`https://quiz-for-you.onrender.com/api/participants/${roomId}`)
+        fetch(`https://quiz-for-you-8759.onrender.com/api/participants/${roomId}`)
             .then(res => res.json())
             .then(data => {
                 divId.innerHTML = '';
