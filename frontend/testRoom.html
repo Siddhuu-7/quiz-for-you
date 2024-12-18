@@ -1,0 +1,77 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz | Test Room</title>
+    <link rel="stylesheet" href="css/testRoom.css">
+    <link rel="stylesheet" href="css/score.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="css/quizfav.ico" type="image/x-icon">
+    <style>
+       #countdown {
+            position: absolute;
+            top: 2%; 
+            right: 2%; 
+            padding: 10px 20px; 
+            border: 2px solid #61dafb;
+            border-radius: 10px;
+            background-color: rgba(97, 218, 251, 0.2);
+            color: white; 
+            font-family: Arial, sans-serif;
+            font-size: 2vw; 
+            min-width: 150px; 
+            text-align: center;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div>
+        <!-- Enter Room Form -->
+        <div id="enter-room" class="enter-room" >
+            <h2>Enter Room</h2>
+            <input type="text" id="userName" placeholder="Enter Your Name">
+            <input id="roomId" type="text" placeholder="Enter Room ID">
+            <input type="text" id="user-password" placeholder="Enter Password">
+            <button type="submit" id="enter" onclick="submit()">Enter</button>
+        </div>
+        <!-- Hidden content that becomes visible after entering the room -->
+        <div id="T" style="display: none;">
+            <div id="countdown">Loading...</div>  
+            <div id="leaderboard" style="display: none;">
+                <a href="leaderBoard.html">📊 LeaderBoard</a>
+            </div>
+
+            <div id="quiz-container">
+                <div id="test-rooms"></div>
+                <div id="result"></div> <!-- To display the result -->
+
+                <!-- Next and Submit buttons -->
+                <button id="next-btn" style="display:none;">Next</button>
+                <button id="submit-btn" style="display:none;">Submit</button>
+            </div>
+
+            <!-- Confetti Container (Hidden initially) -->
+            <div id="confetti-container" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="testquestions.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>
+    {
+        const id =localStorage.getItem('saveRoomId');
+        if(id){
+            // console.log(id);
+            document.getElementById('roomId').value=id;
+        }
+    })
+    window.addEventListener('beforeunload', (event) => { // Cancel the event 
+        event.preventDefault(); 
+        localStorage.removeItem('saveRoomId');
+     });
+    </script>
+
+    
+</body>        
+</html>
