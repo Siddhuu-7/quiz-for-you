@@ -64,10 +64,11 @@ async function fetchRooms() {
                             const roomDiv = document.createElement("div");
                             roomDiv.classList.add("room-container");
                             roomDiv.id='room-ended'
+                            roomDiv.title="This Room Is Ended";
                             const startTime = document.createElement("div");
                             startTime.classList.add("start-time");
                             startTime.textContent = `Start Time: ${formatTime(room.startTime)}`;
-    
+                            
                             const endTime = document.createElement("div");
                             endTime.classList.add("ended-time");
                             endTime.textContent = `End Time: ${formatTime(room.endingTime)}`;
